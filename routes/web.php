@@ -80,4 +80,6 @@ Route::get('/exhibit-{id}', function ($id) {
     return view('tables.gallery.exhibit', ['exhibit' => $exhibit, 'exhibits' => $exhibits, 'art' => $art, 'poetry' => $poetry, 'music' => $music, 'user' => $user]);
 });
 
-Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
+// idk about this, ill work on it after the main backend component is working
+// Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
+Route::get('/test', 'App\Http\Controllers\PagesController@index');
