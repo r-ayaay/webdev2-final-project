@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 
 /**
  * The following block of code may be used to automatically register your
@@ -28,8 +30,56 @@ window.Vue = require('vue').default;
  */
 
 import App from './views/app.vue';
+import GalleryTable from './views/tables/GalleryTable.vue';
+import ArtTable from './views/tables/ArtTable.vue';
+import ExhibitTable from './views/tables/ExhibitTable.vue';
+import PoetryTable from './views/tables/PoetryTable.vue';
+import MusicTable from './views/tables/MusicTable.vue';
+import Uwu from './views/test.vue';
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        // {
+        //     path: '/',
+        //     name: 'home',
+        //     component: Home
+        // },
+        {
+            path: '/test/home',
+            name: 'GalleryTable',
+            component: GalleryTable,
+        },
+        {
+            path: '/test/art',
+            name: 'ArtTable',
+            component: ArtTable,
+        },
+        {
+            path: '/test/exhibit',
+            name: 'ExhibitTable',
+            component: ExhibitTable,
+        },
+        {
+            path: '/test/poetry',
+            name: 'PoetryTable',
+            component: PoetryTable,
+        },
+        {
+            path: '/test/music',
+            name: 'MusicTable',
+            component: MusicTable,
+        },
+        {
+            path: '/test/5',
+            name: 'Uwu',
+            component: Uwu,
+        },
+    ],
+});
 
 const app = new Vue({
     el: '#app',
-    components: { App }
+    components: { App },
+    router,
 });

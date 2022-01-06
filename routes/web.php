@@ -81,5 +81,6 @@ Route::get('/exhibit-{id}', function ($id) {
 });
 
 // idk about this, ill work on it after the main backend component is working
-// Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
-Route::get('/test', 'App\Http\Controllers\PagesController@index');
+Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
+// Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '^(?!login|register|logout).*');
+// Route::get('/test', 'App\Http\Controllers\PagesController@index');

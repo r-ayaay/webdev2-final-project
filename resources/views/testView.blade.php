@@ -19,7 +19,7 @@
 
 <body>
     <div id="app">
-        <app :datas="{{$art}}"></app>
+        <app :artdata="{{$arts}}" :gallerydata="{{$exhibits}}" :poetrydata="{{$poetries}}" :musicdata="{{$musics}}"></app>
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>

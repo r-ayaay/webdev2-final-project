@@ -26,8 +26,6 @@
   </div>
 </template>
 <script>
-const default_layout = "default";
-
 export default {
   computed: {},
   props: ["data"],

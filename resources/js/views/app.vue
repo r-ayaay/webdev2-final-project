@@ -1,32 +1,60 @@
 <template>
   <div>
     <!-- {{ message }} -->
-    <!-- <div class="cards-table">
-      <div v-for="data in datas" v-bind:key="data['id']">
-        <artCard :data="data" />
-      </div>
-    </div> -->
+
     <topBar />
 
     <div id="container">
       <!-- side nav bar -->
-      <sideNav />
+      <sideBar />
 
       <!-- area that will display tables, depending on which link it is at-->
       <div id="mainSide">
-        <!-- @yield('content') -->
-        hello
+        <!-- <router-view></router-view> -->
+
+        <!-- this is for GalleryTable -->
+        <!-- work on making the image work -->
+        <!-- <div v-for="data in gallerydata" v-bind:key="data['id']">
+          <galleryCard :data="data" />
+        </div> -->
+
+        <!-- this is for ArtTable -->
+        <!-- <div class="cards-table">
+          <div v-for="data in artdata" v-bind:key="data['id']">
+            <artCard :data="data" />
+          </div>
+        </div> -->
+
+        <!-- this is for PoetryTable -->
+        <!-- <div class="cards-table">
+          <div v-for="data in poetrydata" v-bind:key="data['id']">
+              <poetryCard :data="data" />
+          </div>
+        </div> -->
+
+        <!-- this is for MusicTable -->
+        <div class="cards-table">
+          <div v-for="data in musicdata" v-bind:key="data['id']">
+              <musicCard :data="data" />
+          </div>
+        </div>
+
+        <!-- this is for ExhibitTable -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// const default_layout = "default";
-
-import artCard from "../components/artCard.vue";
-import sideNav from "../components/sideNav.vue";
 import topBar from "../components/topBar.vue";
+import sideBar from "../components/sideBar.vue";
+
+import artCard from "../components/cards/artCard.vue";
+import galleryCard from "../components/cards/galleryCard.vue";
+import poetryCard from "../components/cards/poetryCard.vue";
+import musicCard from "../components/cards/musicCard.vue";
+
+
 export default {
   computed: {},
   data() {
@@ -34,8 +62,8 @@ export default {
       message: "This is a message from app.vue",
     };
   },
-  components: { topBar, sideNav, artCard },
-  props: ["datas"],
+  components: { topBar, sideBar, artCard, galleryCard, poetryCard, musicCard },
+  props: ["artdata", "gallerydata", "poetrydata", "musicdata"],
 };
 </script>
 

@@ -27,7 +27,9 @@
                 @endguest -->
     </div>
 
-    <h1 id="title"><a href="/">XHIBIT</a></h1>
+    <h1 id="title">
+      <router-link :to="{ name: 'GalleryTable' }">XHIBIT</router-link>
+    </h1>
 
     <div></div>
 
