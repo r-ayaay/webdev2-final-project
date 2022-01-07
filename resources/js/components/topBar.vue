@@ -16,15 +16,7 @@
         />
       </svg>
 
-      thing
-      <!-- @guest
-                    @if (Route::has('login'))
-                        <h5 id="userName">Guest Account</h5>   
-                    @endif
-
-                    @else
-                        <h5 id="userName">{{ Auth::user()->name }}</h4>
-                @endguest -->
+      {{username}}
     </div>
 
     <h1 id="title">
@@ -34,7 +26,14 @@
     <div></div>
 
     <div>
-      logout
+      <li>
+        <a
+          id="logout"
+          @click.prevent="logout"
+        >
+          logout
+        </a>
+      </li>
       <!-- @guest
                 @if (Route::has('login'))
                 <button id="myBtn" class="login">Log in</button>
@@ -53,8 +52,20 @@
   </div>
 </template>
 <script>
+
+import axios from 'axios';
+
 export default {
   computed: {},
-  props: [],
+  props: ['username'],
+  methods: {
+    logout() {
+      axios
+        .post('/login')
+        .catch(error => {
+          window.location.href = 'login';
+        });
+    }
+  }
 };
 </script>

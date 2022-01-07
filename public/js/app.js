@@ -2063,6 +2063,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2116,10 +2118,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {},
-  props: []
+  props: ['username'],
+  methods: {
+    logout: function logout() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/login')["catch"](function (error) {
+        window.location.href = 'login';
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2187,7 +2196,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -2209,7 +2217,7 @@ __webpack_require__.r(__webpack_exports__);
     poetryCard: _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_4__.default,
     musicCard: _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_5__.default
   },
-  props: ["artdata", "gallerydata", "poetrydata", "musicdata"]
+  props: ['userID', 'username', 'isAdmin', 'artdata', 'gallerydata', 'poetrydata', 'musicdata']
 });
 
 /***/ }),
@@ -2339,9 +2347,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {},
-  props: []
+  props: ['username']
 });
 
 /***/ }),
@@ -39104,7 +39115,7 @@ var render = function() {
           })
         ]
       ),
-      _vm._v("\n\n    thing\n    ")
+      _vm._v("\n\n    " + _vm._s(_vm.username) + "\n  ")
     ]),
     _vm._v(" "),
     _c(
@@ -39120,7 +39131,23 @@ var render = function() {
     _vm._v(" "),
     _c("div"),
     _vm._v(" "),
-    _c("div", [_vm._v("\n    logout\n    ")])
+    _c("div", [
+      _c("li", [
+        _c(
+          "a",
+          {
+            attrs: { id: "logout" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.logout.apply(null, arguments)
+              }
+            }
+          },
+          [_vm._v("\n        logout\n      ")]
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -39149,7 +39176,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("topBar"),
+      _c("topBar", { attrs: { username: _vm.username } }),
       _vm._v(" "),
       _c(
         "div",
@@ -39327,7 +39354,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("uwu")])
+  return _c("div", [
+    _c("h1", [_vm._v("test vue")]),
+    _vm._v(" "),
+    _c("h1", [_vm._v(_vm._s(_vm.username))])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54721,6 +54752,18 @@ Vue.compile = compileToFunctions;
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

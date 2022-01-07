@@ -8,7 +8,7 @@
                     </h2>             
 </div>
 
-<div class="exhibit-grid">
+<div class="exhibit-grid"> 
     @foreach ($exhibits as $item)
             <?php
                 if($arts->where('exhibit_id', $item->id)->first() != NULL){

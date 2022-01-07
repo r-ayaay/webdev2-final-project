@@ -22,8 +22,6 @@ class MainController extends Controller
                 $music = music::all();
                 $poetry = poetry::all();
                 $transaction = transaction::all();
-                $user = user::all();
-
                 return view('tables/allTable')->with('art', $art)->with('exhibit', $exhibit)->with('music', $music)->with('poetry', $poetry)->with('transaction', $transaction)->with('user', $user);
             }
             else{
