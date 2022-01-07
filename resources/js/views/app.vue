@@ -2,7 +2,7 @@
   <div>
     <!-- {{ message }} -->
 
-    <topBar />
+    <topBar :username=username />
 
     <div id="container">
       <!-- side nav bar -->
@@ -60,11 +60,12 @@ export default {
   data() {
     return {
       message: "This is a message from app.vue",
+      
     };
   },
   components: { topBar, sideBar, artCard, galleryCard, poetryCard, musicCard },
-  props: ["artdata", "gallerydata", "poetrydata", "musicdata"],
-};
+  props: ['userID','username', 'isAdmin', 'artdata', 'gallerydata', 'poetrydata', 'musicdata']
+}
 </script>
 
 <style >

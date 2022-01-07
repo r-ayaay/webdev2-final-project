@@ -19,7 +19,9 @@ Route::group(['middleware' => ['auth', 'isUser']], function () {
     Route::get('/home', function () {
         $exhibits = exhibit::all();
         $arts = art::all();
-        return view('tables/galleryTable', ['exhibits' => $exhibits, 'arts' => $arts]);
+        $poetries = poetry::all();
+        $musics = music::all();
+        return view('testView', ['exhibits' => $exhibits, 'arts' => $arts, 'poetries' => $poetries, 'musics' => $musics]);
     })->name('home');
 });
 

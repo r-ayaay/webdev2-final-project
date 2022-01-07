@@ -19,7 +19,21 @@
 
 <body>
     <div id="app">
-        <app :artdata="{{$arts}}" :gallerydata="{{$exhibits}}" :poetrydata="{{$poetries}}" :musicdata="{{$musics}}"></app>
+        
+    @guest
+            @if (!Route::has('login'))
+                <h5 id="userName">Guest Account</h5>   
+            @endif
+
+            @else
+                <?php
+                    $userID = Auth::user()->id;
+                    $username = Auth::user()->name;
+                    $isAdmin = Auth::user()->admin;
+                ?>
+        @endguest
+
+        <app username="{{$username}}" userID="{{$userID}}" isAdmin="{{$isAdmin}}" artdata="{{$arts}}" gallerydata="{{$exhibits}}" poetrydata="{{$poetries}}" musicdata="{{$musics}}" />
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>
