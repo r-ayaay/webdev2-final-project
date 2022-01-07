@@ -3,6 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ArtController;
+use App\Http\Controllers\PoetryController;
+use App\Http\Controllers\ExhibitController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MusicController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +22,4 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+

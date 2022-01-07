@@ -84,3 +84,8 @@ Route::get('/exhibit-{id}', function ($id) {
 Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
 // Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '^(?!login|register|logout).*');
 // Route::get('/test', 'App\Http\Controllers\PagesController@index');
+
+Route::get('/api/getart', function(){
+    $art = Art::all();
+    return $art;
+});

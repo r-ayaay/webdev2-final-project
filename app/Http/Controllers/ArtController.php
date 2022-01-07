@@ -141,4 +141,10 @@ class ArtController extends Controller
 
         return redirect()->route('art.index');
     }
+
+    public function getData(Request $request){
+        console.log("hello");
+        $art = Art::all();
+        return $art;
+    }
 }

@@ -1,13 +1,12 @@
 <template>
   <div class="card">
     <div class="title">"{{ data["title"] }}"</div>
-    <!-- <img
-      src="{{asset('storage/art/'.$data.photo)}}"
-      onclick="onClick(this)"
+    <img
+      :src="'../storage/art/' + data.photo"
       alt="Art Photo"
       style="width: 100%"
       id="img"
-    /> -->
+    />
 
     <div>
       <div class="theme-title">
@@ -29,5 +28,8 @@
 export default {
   computed: {},
   props: ["data"],
+  mounted (){
+    console.log(this.data);
+  }
 };
 </script>

@@ -10,7 +10,7 @@
 
       <!-- area that will display tables, depending on which link it is at-->
       <div id="mainSide">
-        <!-- <router-view></router-view> -->
+        <router-view></router-view>
 
         <!-- this is for GalleryTable -->
         <!-- work on making the image work -->
@@ -33,11 +33,11 @@
         </div> -->
 
         <!-- this is for MusicTable -->
-        <div class="cards-table">
+        <!-- <div class="cards-table">
           <div v-for="data in musicdata" v-bind:key="data['id']">
               <musicCard :data="data" />
           </div>
-        </div>
+        </div> -->
 
         <!-- this is for ExhibitTable -->
       </div>
