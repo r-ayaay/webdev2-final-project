@@ -21,10 +21,6 @@
       <router-link :to="{ name: 'MusicTable' }">
         <li class="subTab">Music</li>
       </router-link>
-
-      <router-link :to="{ name: 'Uwu' }">
-        <li class="subTab">uwu</li>
-      </router-link>
     </ul>
   </div>
 </template>

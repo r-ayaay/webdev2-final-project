@@ -2,7 +2,7 @@
   <div class="card">
     <div class="title">"{{ data["title"] }}"</div>
     <img
-      :src="'../storage/art/' + data.photo"
+      :src="'../storage/art/' + data['photo']"
       alt="Art Photo"
       style="width: 100%"
       id="img"
@@ -28,8 +28,8 @@
 export default {
   computed: {},
   props: ["data"],
-  mounted (){
+  mounted() {
     console.log(this.data);
-  }
+  },
 };
 </script>

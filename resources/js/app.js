@@ -35,7 +35,10 @@ import ArtTable from './views/tables/ArtTable.vue';
 import ExhibitTable from './views/tables/ExhibitTable.vue';
 import PoetryTable from './views/tables/PoetryTable.vue';
 import MusicTable from './views/tables/MusicTable.vue';
-import Uwu from './views/test.vue';
+
+import newArt from './views/forms/new/Art.vue';
+import newPoetry from './views/forms/new/Poetry.vue';
+
 
 const router = new VueRouter({
     mode: 'history',
@@ -46,34 +49,39 @@ const router = new VueRouter({
         //     component: Home
         // },
         {
-            path: '/test/home',
+            path: '/vue/home',
             name: 'GalleryTable',
             component: GalleryTable,
         },
         {
-            path: '/test/art',
+            path: '/vue/art',
             name: 'ArtTable',
             component: ArtTable,
         },
         {
-            path: '/test/exhibit',
+            path: '/vue/exhibit',
             name: 'ExhibitTable',
             component: ExhibitTable,
         },
         {
-            path: '/test/poetry',
+            path: '/vue/poetry',
             name: 'PoetryTable',
             component: PoetryTable,
         },
         {
-            path: '/test/music',
+            path: '/vue/music',
             name: 'MusicTable',
             component: MusicTable,
         },
         {
-            path: '/test/5',
-            name: 'Uwu',
-            component: Uwu,
+            path: '/vue/newArt',
+            name: 'newArt',
+            component: newArt,
+        },
+        {
+            path: '/vue/newPoetry',
+            name: 'newPoetry',
+            component: newPoetry,
         },
     ],
 });

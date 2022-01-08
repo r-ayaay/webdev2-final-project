@@ -1,6 +1,4 @@
- <template>
-  <div>This is ExhibitTable</div>
-</template>
+ <template></template>
 
 <script>
 export default {

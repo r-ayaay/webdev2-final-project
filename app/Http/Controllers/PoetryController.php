@@ -24,7 +24,7 @@ class PoetryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     public function create()
     {
         return view('forms.newPoetry');
@@ -77,7 +77,7 @@ class PoetryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $inputs = request()->except('_token', '_method');
         Poetry::where('id', $id)
             ->update($inputs);
@@ -87,17 +87,18 @@ class PoetryController extends Controller
 
 
 
-    
-    public function addToExhibit(Request $req, $id){
+
+    public function addToExhibit(Request $req, $id)
+    {
         $inputs = $req->get('poetry');
         $var = poetry::where('exhibit_id', $id)->get();
 
-        foreach($var as $var){
+        foreach ($var as $var) {
             $var->exhibit_id = NULL;
             $var->save();
         }
-        if($inputs){
-            foreach($inputs as $item){
+        if ($inputs) {
+            foreach ($inputs as $item) {
                 $art = poetry::where('id', $item);
                 $input = ['exhibit_id' => $id];
                 $art->update($input);
@@ -115,10 +116,26 @@ class PoetryController extends Controller
     public function destroy($id)
     {
         $poetry = Poetry::find($id);
-        if($poetry){
+        if ($poetry) {
             $poetry->delete();
         }
 
         return redirect()->route('poetry.index');
+    }
+
+    function vueAddPoetry(Request $request)
+    {
+        $poetry = new Poetry;
+        $poetry->title = $request->title;
+        $poetry->body = $request->body;
+        $poetry->theme = $request->theme;
+        $poetry->save();
+
+        return response()->json(
+            [
+                'success' => true,
+                'message' => 'Poetry added!'
+            ]
+        );
     }
 }
