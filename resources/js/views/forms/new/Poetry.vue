@@ -25,10 +25,8 @@
 </template>
 
 <script>
-import axios from "axios";
 import Form from "vform";
 const url = "/addpoetry";
-// Axios.defaults.headers.common['Authorization'] = `Bearer ${params.token}`; // if you are using some token authentication
 
 export default {
   computed: {},

@@ -2102,11 +2102,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {},
   props: ["data"],
-  mounted: function mounted() {
-    console.log(this.data);
+  methods: {
+    deleteart: function deleteart() {
+      axios.post(this.url);
+      this.$emit("deleted");
+    }
+  },
+  data: function data() {
+    return {
+      url: "/deleteart/" + this.data["id"]
+    };
   }
 });
 
@@ -2155,6 +2167,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     deletemusic: function deletemusic() {
       axios__WEBPACK_IMPORTED_MODULE_0___default().post(this.url);
+      this.$emit("deleted");
     }
   },
   data: function data() {
@@ -2208,12 +2221,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {},
-  props: ["data"]
+  props: ["data"],
+  methods: {
+    deletepoetry: function deletepoetry() {
+      var _this = this;
+
+      axios.post(this.url).then(function () {
+        _this.$emit("deleted");
+      });
+    }
+  },
+  data: function data() {
+    return {
+      url: "/deletepoetry/" + this.data["id"]
+    };
+  }
 });
 
 /***/ }),
@@ -2388,14 +2412,20 @@ __webpack_require__.r(__webpack_exports__);
   computed: {},
   data: function data() {
     return {
-      message: "This is a message from app.vue"
+      message: "This is a message from app.vue",
+      componentKey: 0
     };
   },
   components: {
     topBar: _components_topBar_vue__WEBPACK_IMPORTED_MODULE_0__.default,
     sideBar: _components_sideBar_vue__WEBPACK_IMPORTED_MODULE_1__.default
   },
-  props: ["userID", "username", "isAdmin"]
+  props: ["userID", "username", "isAdmin"],
+  methods: {
+    handleDelete: function handleDelete() {
+      this.componentKey += 1;
+    }
+  }
 });
 
 /***/ }),
@@ -2404,74 +2434,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/forms/new/Art.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var url = "/api/getart/";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  computed: {},
-  props: [],
-  components: {},
-  data: function data() {
-    return {};
-  },
-  mounted: function mounted() {}
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/forms/new/Poetry.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/forms/new/Poetry.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2508,10 +2470,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
-var url = "/addpoetry"; // Axios.defaults.headers.common['Authorization'] = `Bearer ${params.token}`; // if you are using some token authentication
-
+var url = "/addart";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {},
   props: [],
@@ -2519,6 +2496,102 @@ var url = "/addpoetry"; // Axios.defaults.headers.common['Authorization'] = `Bea
   data: function data() {
     return {
       form: new vform__WEBPACK_IMPORTED_MODULE_1__.default({
+        title: "",
+        description: "",
+        theme: "",
+        photo: ""
+      })
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    onImageChange: function onImageChange(e) {
+      this.form.photo = e.target.files[0];
+    },
+    addart: function addart() {
+      var _this = this;
+
+      var data = new FormData();
+      data.append("title", this.form.title);
+      data.append("description", this.form.description);
+      data.append("theme", this.form.theme);
+      data.append("photo", this.form.photo); // this.form
+      //   .post(url, {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //   })
+      //   .then((response) => {
+      //     var attr = document.getElementById("info");
+      //     attr.innerHTML = response.data.message;
+      //     console.log(response.data.message);
+      //     this.form.reset();
+      //   });
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }).then(function (response) {
+        var attr = document.getElementById("info");
+        attr.innerHTML = response.data.message;
+        console.log(response.data.message);
+
+        _this.form.reset();
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/forms/new/Poetry.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/forms/new/Poetry.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.es.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var url = "/addpoetry";
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  computed: {},
+  props: [],
+  components: {},
+  data: function data() {
+    return {
+      form: new vform__WEBPACK_IMPORTED_MODULE_0__.default({
         title: "",
         body: "",
         theme: "",
@@ -2605,6 +2678,11 @@ var url = "/api/getart/"; // Axios.defaults.headers.common['Authorization'] = `B
     axios__WEBPACK_IMPORTED_MODULE_0___default().get(url).then(function (response) {
       return _this.artdata = response.data;
     });
+  },
+  methods: {
+    handleDelete: function handleDelete() {
+      this.$emit("deleted");
+    }
   }
 });
 
@@ -2694,6 +2772,11 @@ var url = "/api/getmusic/";
     axios__WEBPACK_IMPORTED_MODULE_0___default().get(url).then(function (response) {
       return _this.musicdata = response.data;
     });
+  },
+  methods: {
+    handleDelete: function handleDelete() {
+      this.$emit("deleted");
+    }
   }
 });
 
@@ -2760,6 +2843,11 @@ var url = "/api/getpoetry/";
     axios__WEBPACK_IMPORTED_MODULE_0___default().get(url).then(function (response) {
       return _this.poetrydata = response.data;
     });
+  },
+  methods: {
+    handleDelete: function handleDelete() {
+      this.$emit("deleted");
+    }
   }
 });
 
@@ -39304,7 +39392,26 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div")
+    _c("div", [
+      _c(
+        "form",
+        {
+          attrs: { action: "#" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.deleteart.apply(null, arguments)
+            }
+          }
+        },
+        [
+          _c("input", {
+            staticClass: "tablerowBtn",
+            attrs: { type: "submit", value: "Delete" }
+          })
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -39395,7 +39502,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "poetry-card" }, [
     _c("div", { staticClass: "title" }, [
-      _vm._v('\n        "' + _vm._s(_vm.data["title"]) + '"\n    ')
+      _vm._v('"' + _vm._s(_vm.data["title"]) + '"')
     ]),
     _vm._v(" "),
     _c(
@@ -39407,18 +39514,37 @@ var render = function() {
           padding: "15px 25px"
         }
       },
-      [_vm._v("\n        " + _vm._s(_vm.data["body"]) + "\n    ")]
+      [_vm._v("\n    " + _vm._s(_vm.data["body"]) + "\n  ")]
     ),
     _vm._v(" "),
     _c("div", [
       _c("hr"),
       _vm._v(" "),
       _c("div", { staticClass: "theme-title" }, [
-        _vm._v("\n            " + _vm._s(_vm.data["theme"]) + "\n        ")
+        _vm._v("\n      " + _vm._s(_vm.data["theme"]) + "\n    ")
       ])
     ]),
     _vm._v(" "),
-    _c("div")
+    _c("div", [
+      _c(
+        "form",
+        {
+          attrs: { action: "#" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.deletepoetry.apply(null, arguments)
+            }
+          }
+        },
+        [
+          _c("input", {
+            staticClass: "tablerowBtn",
+            attrs: { type: "submit", value: "Delete" }
+          })
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -39592,7 +39718,17 @@ var render = function() {
         [
           _c("sideBar"),
           _vm._v(" "),
-          _c("div", { attrs: { id: "mainSide" } }, [_c("router-view")], 1)
+          _c(
+            "div",
+            { attrs: { id: "mainSide" } },
+            [
+              _c("router-view", {
+                key: _vm.componentKey,
+                on: { deleted: _vm.handleDelete }
+              })
+            ],
+            1
+          )
         ],
         1
       )
@@ -39623,75 +39759,129 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("span", { attrs: { id: "info" } }),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        attrs: { action: "#", autocomplete: "off" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.addart.apply(null, arguments)
+          }
+        }
+      },
+      [
+        _c("h1", [_vm._v("ART FORM")]),
+        _vm._v(" "),
+        _c("input", { attrs: { type: "hidden", name: "user_id", value: "" } }),
+        _vm._v(" "),
+        _c("div", { staticClass: "fileDiv" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("input", {
+            attrs: {
+              type: "file",
+              accept: "image/*",
+              id: "choose-file",
+              name: "photo",
+              required: ""
+            },
+            on: { change: _vm.onImageChange }
+          })
+        ]),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "title" } }, [_vm._v("Art Title")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.form.title,
+              expression: "form.title"
+            }
+          ],
+          attrs: { type: "text", name: "title", required: "" },
+          domProps: { value: _vm.form.title },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.form, "title", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "description" } }, [_vm._v("Description")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.form.description,
+              expression: "form.description"
+            }
+          ],
+          attrs: { type: "text", name: "description", required: "" },
+          domProps: { value: _vm.form.description },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.form, "description", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "theme" } }, [_vm._v("Theme")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.form.theme,
+              expression: "form.theme"
+            }
+          ],
+          attrs: { type: "text", name: "theme", required: "" },
+          domProps: { value: _vm.form.theme },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.form, "theme", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm._m(1)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "form",
-        {
-          attrs: {
-            action: "",
-            enctype: "multipart/form-data",
-            autocomplete: "off",
-            method: "post"
-          }
-        },
-        [
-          _c("h1", [_vm._v("ART FORM")]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "hidden", name: "user_id", value: "" }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "fileDiv" }, [
-            _c("div", { attrs: { id: "img-prev" } }, [
-              _c("p", [_vm._v("No File Chosen")])
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticStyle: { display: "none" },
-              attrs: {
-                type: "file",
-                accept: "image/*",
-                id: "choose-file",
-                name: "photo",
-                required: ""
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "fileBtn", attrs: { onClick: "fileup()" } },
-              [_vm._v("Choose Photo")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "title" } }, [_vm._v("Art Title")]),
-          _vm._v(" "),
-          _c("input", { attrs: { type: "text", name: "title", required: "" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "description" } }, [
-            _vm._v("Description")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "text", name: "description", required: "" }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "theme" } }, [_vm._v("Theme")]),
-          _vm._v(" "),
-          _c("input", { attrs: { type: "text", name: "theme", required: "" } }),
-          _vm._v(" "),
-          _c("button", { attrs: { id: "submitBtn" } }, [
-            _c("h3", [_vm._v("SUBMIT")])
-          ])
-        ]
-      )
+    return _c("div", { attrs: { id: "img-prev" } }, [
+      _c("p", [_vm._v("No File Chosen")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { attrs: { id: "submitBtn" } }, [
+      _c("h3", [_vm._v("SUBMIT")])
     ])
   }
 ]
@@ -39895,7 +40085,12 @@ var render = function() {
           return _c(
             "div",
             { key: data["id"] },
-            [_c("artCard", { attrs: { data: data } })],
+            [
+              _c("artCard", {
+                attrs: { data: data },
+                on: { deleted: _vm.handleDelete }
+              })
+            ],
             1
           )
         }),
@@ -39985,7 +40180,12 @@ var render = function() {
       return _c(
         "div",
         { key: data["id"] },
-        [_c("musicCard", { attrs: { data: data } })],
+        [
+          _c("musicCard", {
+            attrs: { data: data },
+            on: { deleted: _vm.handleDelete }
+          })
+        ],
         1
       )
     }),
@@ -40056,11 +40256,16 @@ var render = function() {
       _c(
         "div",
         { staticClass: "cards-table" },
-        _vm._l(_vm.poetrydata, function(data) {
+        _vm._l(_vm.poetrydata, function(data, index) {
           return _c(
             "div",
-            { key: data["id"] },
-            [_c("poetryCard", { attrs: { data: data } })],
+            { key: index },
+            [
+              _c("poetryCard", {
+                attrs: { data: data },
+                on: { deleted: _vm.handleDelete }
+              })
+            ],
             1
           )
         }),

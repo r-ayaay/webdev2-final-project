@@ -30,6 +30,7 @@ export default {
   methods: {
     deletemusic() {
       axios.post(this.url);
+      this.$emit("deleted");
     },
   },
   data() {

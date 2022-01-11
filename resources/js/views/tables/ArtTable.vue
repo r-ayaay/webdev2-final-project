@@ -19,7 +19,7 @@
     </router-link>
     <div class="cards-table">
       <div v-for="data in artdata" v-bind:key="data['id']">
-        <artCard :data="data" />
+        <artCard :data="data" @deleted="handleDelete" />
       </div>
     </div>
   </div>
@@ -43,6 +43,11 @@ export default {
   },
   mounted() {
     axios.get(url).then((response) => (this.artdata = response.data));
+  },
+  methods: {
+    handleDelete() {
+      this.$emit("deleted");
+    },
   },
 };
 </script>

@@ -1,7 +1,7 @@
  <template>
   <div class="cards-table">
     <div v-for="data in musicdata" v-bind:key="data['id']">
-      <musicCard :data="data" />
+      <musicCard :data="data" @deleted="handleDelete" />
     </div>
   </div>
 </template>
@@ -22,6 +22,11 @@ export default {
   },
   mounted() {
     axios.get(url).then((response) => (this.musicdata = response.data));
+  },
+  methods: {
+    handleDelete() {
+      this.$emit("deleted");
+    },
   },
 };
 </script>

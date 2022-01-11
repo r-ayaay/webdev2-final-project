@@ -18,8 +18,8 @@
       </svg>
     </router-link>
     <div class="cards-table">
-      <div v-for="data in poetrydata" v-bind:key="data['id']">
-        <poetryCard :data="data" />
+      <div v-for="(data, index) in poetrydata" :key="index">
+        <poetryCard :data="data" @deleted="handleDelete" />
       </div>
     </div>
   </div>
@@ -41,6 +41,11 @@ export default {
   },
   mounted() {
     axios.get(url).then((response) => (this.poetrydata = response.data));
+  },
+  methods: {
+    handleDelete() {
+      this.$emit("deleted");
+    },
   },
 };
 </script>

@@ -10,7 +10,7 @@
 
       <!-- area that will display tables, depending on which link it is at-->
       <div id="mainSide">
-        <router-view></router-view>
+        <router-view @deleted="handleDelete" :key="componentKey"></router-view>
 
         <!-- this is for GalleryTable -->
         <!-- work on making the image work -->
@@ -33,10 +33,16 @@ export default {
   data() {
     return {
       message: "This is a message from app.vue",
+      componentKey: 0,
     };
   },
   components: { topBar, sideBar },
   props: ["userID", "username", "isAdmin"],
+  methods: {
+    handleDelete() {
+      this.componentKey += 1;
+    },
+  },
 };
 </script>
 

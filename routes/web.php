@@ -93,23 +93,40 @@ Route::get('/api/getart', function () {
     return $art;
 });
 
+Route::post('/addart', function (Request $request) {
+
+    $destination_path = 'public/art';
+    $photo = $_FILES['photo'];
+    request(('photo'))->storeAs($destination_path, $photo['name']);
+
+    $art = new Art;
+    $art->user_id = Auth::user()->id;
+    $art->title = $request->title;
+    $art->description = $request->description;
+    $art->photo = $photo['name'];
+    $art->theme = $request->theme;
+    $art->save();
+    return response()->json(
+        [
+            'success' => true,
+            'message' => "it worked",
+        ]
+    );
+});
+
+Route::post('/deleteart/{id}', function ($id) {
+    $art = art::find($id);
+
+    if ($art) {
+        $art->delete();
+    }
+});
+
 Route::get('/api/getpoetry', function () {
     $poetry = Poetry::all();
     return $poetry;
 });
 
-Route::get('/api/getmusic', function () {
-    $music = Music::all();
-    return $music;
-});
-
-Route::post('/deletemusic/{id}', function ($id) {
-    $music = music::find($id);
-
-    if ($music) {
-        $music->delete();
-    }
-});
 Route::post('/addpoetry', function (Request $request) {
 
     $poetry = new Poetry;
@@ -125,4 +142,25 @@ Route::post('/addpoetry', function (Request $request) {
             'message' => 'Poetry added!'
         ]
     );
+});
+
+Route::post('/deletepoetry/{id}', function ($id) {
+    $poetry = poetry::find($id);
+
+    if ($poetry) {
+        $poetry->delete();
+    }
+});
+
+Route::get('/api/getmusic', function () {
+    $music = Music::all();
+    return $music;
+});
+
+Route::post('/deletemusic/{id}', function ($id) {
+    $music = music::find($id);
+
+    if ($music) {
+        $music->delete();
+    }
 });

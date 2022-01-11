@@ -21,15 +21,27 @@
       </div>
     </div>
 
-    <div></div>
+    <div>
+      <form action="#" @submit.prevent="deleteart">
+        <input class="tablerowBtn" type="submit" value="Delete" />
+      </form>
+    </div>
   </div>
 </template>
 <script>
 export default {
   computed: {},
   props: ["data"],
-  mounted() {
-    console.log(this.data);
+  methods: {
+    deleteart() {
+      axios.post(this.url);
+      this.$emit("deleted");
+    },
+  },
+  data() {
+    return {
+      url: "/deleteart/" + this.data["id"],
+    };
   },
 };
 </script>
