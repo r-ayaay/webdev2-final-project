@@ -3052,7 +3052,7 @@ var url = "/api/getexhibit/";
   data: function data() {
     return {
       gallerydata: null,
-      urlart: "/gallery/",
+      urlart: "/gallery/" + this.$route.params.id + "/art",
       urlpoetry: "/gallery/",
       urlmusic: "/gallery/"
     };

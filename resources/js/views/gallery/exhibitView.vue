@@ -62,7 +62,7 @@ export default {
   data() {
     return {
       gallerydata: null,
-      urlart: "/gallery/",
+      urlart: "/gallery/" + this.$route.params.id + "/art",
       urlpoetry: "/gallery/",
       urlmusic: "/gallery/",
     };
