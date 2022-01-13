@@ -1,13 +1,17 @@
  <template>
   <div>
-    <h1>test vue</h1>
-    <h1>{{username}}</h1>
+    <topBar :username="username" />
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import topBar from "../components/topBarGuest.vue";
+
 export default {
   computed: {},
-  props: ['username']
+  props: ["username"],
+  components: { topBar },
 };
 </script>

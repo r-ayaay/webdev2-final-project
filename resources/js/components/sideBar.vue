@@ -2,9 +2,9 @@
   <div id="sidenav">
     <h2 id="label">TABLES</h2>
     <ul id="nav">
-      <router-link :to="{ name: 'GalleryTable' }">
+      <!-- <router-link :to="{ name: 'GalleryTable' }">
         <li class="subTab">Gallery</li>
-      </router-link>
+      </router-link> -->
 
       <router-link :to="{ name: 'ArtTable' }">
         <li class="subTab">Art</li>
@@ -22,8 +22,8 @@
         <li class="subTab">Music</li>
       </router-link>
 
-      <router-link :to="{ name: 'Uwu' }">
-        <li class="subTab">uwu</li>
+      <router-link :to="{ name: 'UsersTable' }">
+        <li class="subTab">Users</li>
       </router-link>
     </ul>
   </div>

@@ -30,56 +30,111 @@ Vue.use(VueRouter)
  */
 
 import App from './views/app.vue';
+import Test from './views/test.vue';
 import GalleryTable from './views/tables/GalleryTable.vue';
 import ArtTable from './views/tables/ArtTable.vue';
 import ExhibitTable from './views/tables/ExhibitTable.vue';
 import PoetryTable from './views/tables/PoetryTable.vue';
 import MusicTable from './views/tables/MusicTable.vue';
-import Uwu from './views/test.vue';
+import UsersTable from './views/tables/UsersTable.vue';
+
+import newArt from './views/forms/new/Art.vue';
+import newMusic from './views/forms/new/Music.vue';
+import newPoetry from './views/forms/new/Poetry.vue';
+import newExhibit from './views/forms/new/Exhibit.vue';
+
+import exhibitsView from './views/gallery/exhibitsView.vue';
+import exhibitView from './views/gallery/exhibitView.vue';
+import exhibitViewArt from './views/gallery/exhibitViewArt.vue';
+import exhibitViewPoetry from './views/gallery/exhibitViewPoetry.vue';
+import exhibitViewMusic from './views/gallery/exhibitViewMusic.vue';
 
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        // {
-        //     path: '/',
-        //     name: 'home',
-        //     component: Home
-        // },
         {
-            path: '/test/home',
+            path: '/gallery',
+            name: 'exhibitsView',
+            component: exhibitsView
+        },
+        {
+            path: '/gallery/:id',
+            component: exhibitView,
+        },
+        {
+            path: '/gallery/:id/art',
+            component: exhibitViewArt,
+        },
+        {
+            path: '/gallery/:id/poetry',
+            component: exhibitViewPoetry,
+        },
+        {
+            path: '/gallery/:id/music',
+            component: exhibitViewMusic,
+        },
+        {
+            path: '/vue/home',
             name: 'GalleryTable',
             component: GalleryTable,
         },
         {
-            path: '/test/art',
+            path: '/vue/art',
             name: 'ArtTable',
             component: ArtTable,
         },
         {
-            path: '/test/exhibit',
+            path: '/vue/exhibit',
             name: 'ExhibitTable',
             component: ExhibitTable,
         },
         {
-            path: '/test/poetry',
+            path: '/vue/poetry',
             name: 'PoetryTable',
             component: PoetryTable,
         },
         {
-            path: '/test/music',
+            path: '/vue/music',
             name: 'MusicTable',
             component: MusicTable,
         },
         {
-            path: '/test/5',
-            name: 'Uwu',
-            component: Uwu,
+            path: '/vue/users',
+            name: 'UsersTable',
+            component: UsersTable,
         },
+        {
+            path: '/vue/newArt',
+            name: 'newArt',
+            component: newArt,
+        },
+        {
+            path: '/vue/newMusic',
+            name: 'newMusic',
+            component: newMusic,
+        },
+        {
+            path: '/vue/newPoetry',
+            name: 'newPoetry',
+            component: newPoetry,
+        },
+        {
+            path: '/vue/newExhibit',
+            name: 'newExhibit',
+            component: newExhibit,
+        },
+
     ],
 });
 
 const app = new Vue({
     el: '#app',
     components: { App },
+    router,
+});
+
+const test = new Vue({
+    el: '#wow',
+    components: { Test },
     router,
 });

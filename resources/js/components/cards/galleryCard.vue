@@ -1,25 +1,26 @@
 <template>
-  <a href="">
+  <router-link :to="url">
     <h2>{{ data["title"] }}</h2>
     <div class="exhibit-card">
       <div class="exhibit-details">
-        <!-- <span>Artist: </span> <span>{{$item->user->name}}</span>
-        <span>Theme: </span> <span>{{$item->theme}}</span>
-        <span>Description: </span> <span>{{$item->description}}</span>
+        <span>Artist: </span> <span>{{ data["user_id"] }}</span>
+        <span>Theme: </span> <span>{{ data["theme"] }}</span>
+        <span>Description: </span> <span>{{ data["description"] }}</span>
         <span>Duration: </span>
-        <span><?php echo $startDate; echo " - "; echo $endDate;?></span> -->
+        <span>{{ data["startDate"] }} - {{ data["endDate"] }}</span>
       </div>
     </div>
-    <!-- status: @if($item->status == 'paid') -->
-    <span style="color: #0fc963">PAID</span>
-    <!-- @else -->
-    <span style="color: #ee0a15">PENDING</span>
-    <!-- @endif -->
-  </a>
+  </router-link>
 </template>
 <script>
 export default {
   computed: {},
   props: ["data"],
+  mounted() {},
+  data() {
+    return {
+      url: "/gallery/" + this.data["id"] + "/art",
+    };
+  },
 };
 </script>

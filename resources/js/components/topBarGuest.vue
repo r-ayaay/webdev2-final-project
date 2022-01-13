@@ -20,14 +20,31 @@
     </div>
 
     <h1 id="title">
-      <router-link :to="{ name: 'ArtTable' }">XHIBIT</router-link>
+      <router-link :to="{ name: 'exhibitsView' }">XHIBIT</router-link>
     </h1>
 
     <div></div>
 
-    <a id="logout">
-      <p id="logoutText">Logout</p>
-    </a>
+    <button id="myBtn" class="login">
+        <a href="/login" style="color: white">
+        Log in
+        </a>
+        </button>
+      <!-- @guest
+                @if (Route::has('login'))
+                <button id="myBtn" class="login">Log in</button>
+                @endif
+                @else
+                <a id="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <p id="logoutText">
+                        {{ __('Logout') }}
+                    </p>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                    </form>
+                </a>      
+            @endguest -->
+    </div>
   </div>
 </template>
 <script>

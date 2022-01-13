@@ -15,11 +15,12 @@
     <link href="{{URL::asset('css/formStyle.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/cardStyle.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/exhibitCardStyle.css')}}" rel="stylesheet">
+    <link href="{{URL::asset('css/tabStyle.css')}}" rel="stylesheet">
     <title>{{env('APP_NAME')}}</title>
 </head>
 
 <body>
-    <div id="app">
+    <div id="wow">
 
         @guest
         @if (!Route::has('login'))
@@ -28,13 +29,10 @@
 
         @else
         <?php
-        $userID = Auth::user()->id;
-        $username = Auth::user()->name;
-        $isAdmin = Auth::user()->admin;
         ?>
         @endguest
 
-        <app username="{{$username}}" userID="{{$userID}}" isAdmin="{{$isAdmin}}" />
+        <test username="Guest Account" />
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>
