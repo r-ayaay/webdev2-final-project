@@ -6,6 +6,7 @@ use App\Http\Controllers\PoetryController;
 use App\Http\Controllers\ExhibitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MusicController;
+use Illuminate\Http\Request;
 
 use App\Models\exhibit;
 use App\Models\art;
@@ -83,11 +84,83 @@ Route::get('/exhibit-{id}', function ($id) {
 });
 
 // idk about this, ill work on it after the main backend component is working
-Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
-// Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '^(?!login|register|logout).*');
+// Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
+Route::get('/vue/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '^(?!login|register|logout).*');
 // Route::get('/test', 'App\Http\Controllers\PagesController@index');
 
-Route::get('/api/getart', function(){
+Route::get('/api/getart', function () {
     $art = Art::all();
     return $art;
+});
+
+Route::post('/addart', function (Request $request) {
+
+    $destination_path = 'public/art';
+    $photo = $_FILES['photo'];
+    request(('photo'))->storeAs($destination_path, $photo['name']);
+
+    $art = new Art;
+    $art->user_id = Auth::user()->id;
+    $art->title = $request->title;
+    $art->description = $request->description;
+    $art->photo = $photo['name'];
+    $art->theme = $request->theme;
+    $art->save();
+    return response()->json(
+        [
+            'success' => true,
+            'message' => "it worked",
+        ]
+    );
+});
+
+Route::post('/deleteart/{id}', function ($id) {
+    $art = art::find($id);
+
+    if ($art) {
+        $art->delete();
+    }
+});
+
+Route::get('/api/getpoetry', function () {
+    $poetry = Poetry::all();
+    return $poetry;
+});
+
+Route::post('/addpoetry', function (Request $request) {
+
+    $poetry = new Poetry;
+    $poetry->user_id = Auth::user()->id;
+    $poetry->title = $request->title;
+    $poetry->body = $request->body;
+    $poetry->theme = $request->theme;
+    $poetry->save();
+
+    return response()->json(
+        [
+            'success' => true,
+            'message' => 'Poetry added!'
+        ]
+    );
+});
+
+Route::post('/deletepoetry/{id}', function ($id) {
+    $poetry = poetry::find($id);
+
+    if ($poetry) {
+        $poetry->delete();
+    }
+});
+
+Route::get('/api/getmusic', function () {
+    $music = Music::all();
+    return $music;
+});
+
+Route::post('/deletemusic/{id}', function ($id) {
+    $music = music::find($id);
+
+    if ($music) {
+        $music->delete();
+    }
 });
