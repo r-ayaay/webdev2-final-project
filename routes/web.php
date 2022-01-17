@@ -18,11 +18,8 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth', 'isUser']], function () {
     Route::get('/home', function () {
-        $exhibits = exhibit::all();
-        $arts = art::all();
-        $poetries = poetry::all();
-        $musics = music::all();
-        return view('testView', ['exhibits' => $exhibits, 'arts' => $arts, 'poetries' => $poetries, 'musics' => $musics]);
+
+        return redirect('/vue/art');
     })->name('home');
 });
 
@@ -41,20 +38,21 @@ Route::post('/music/addToExhibit/{id}', [MusicController::class, 'addToExhibit']
 Route::resource('user', UserController::class);
 
 Route::get('/', function () {
+    return redirect('/gallery');
+});
+
+Route::get('/gallery', function () {
 
     // if(Auth::check()){
     //     return redirect()->route('art.index');
     // }
 
     // else{$exhibit = exhibit::all();
-    $exhibits = exhibit::all();
-    $arts = art::all();
-    return view('tables.gallery.exhibits', ['exhibits' => $exhibits, 'arts' => $arts]);
-
-    // return redirect('/login');
-    // }
-
+    return view('vueGallery');
 });
+Route::get('/gallery/{any}', function () {
+    return view('vueGallery');
+})->where('any', '^(?!login|register|logout).*');
 
 Route::get('/archives', function () {
 
@@ -86,10 +84,14 @@ Route::get('/exhibit-{id}', function ($id) {
 // idk about this, ill work on it after the main backend component is working
 // Route::get('/test/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
 Route::get('/vue/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '^(?!login|register|logout).*');
-// Route::get('/test', 'App\Http\Controllers\PagesController@index');
+// Route::get('/{any}', 'App\Http\Controllers\PagesController@index');
 
 Route::get('/api/getart', function () {
-    $art = Art::all();
+    if (Auth::user()->admin == 1) {
+        $art = Art::all();
+    } else {
+        $art = Art::where('user_id', Auth::user()->id)->get();
+    }
     return $art;
 });
 
@@ -123,7 +125,11 @@ Route::post('/deleteart/{id}', function ($id) {
 });
 
 Route::get('/api/getpoetry', function () {
-    $poetry = Poetry::all();
+    if (Auth::user()->admin == 1) {
+        $poetry = Poetry::all();
+    } else {
+        $poetry = Poetry::where('user_id', Auth::user()->id)->get();
+    }
     return $poetry;
 });
 
@@ -153,8 +159,35 @@ Route::post('/deletepoetry/{id}', function ($id) {
 });
 
 Route::get('/api/getmusic', function () {
-    $music = Music::all();
+    if (Auth::user()->admin == 1) {
+        $music = music::all();
+    } else {
+        $music = music::where('user_id', Auth::user()->id)->get();
+    }
     return $music;
+});
+
+Route::post('/addmusic', function (Request $request) {
+
+    $destination_path = 'public/music';
+    $photo = $_FILES['photo'];
+    $audio = $_FILES['music'];
+    request(('photo'))->storeAs($destination_path, $photo['name']);
+    request(('music'))->storeAs($destination_path, $audio['name']);
+
+    $music = new Music;
+    $music->user_id = Auth::user()->id;
+    $music->title = $request->title;
+    $music->genre = $request->genre;
+    $music->photo = $photo['name'];
+    $music->music = $audio['name'];
+    $music->save();
+    return response()->json(
+        [
+            'success' => true,
+            'message' => "it worked",
+        ]
+    );
 });
 
 Route::post('/deletemusic/{id}', function ($id) {
@@ -163,4 +196,69 @@ Route::post('/deletemusic/{id}', function ($id) {
     if ($music) {
         $music->delete();
     }
+});
+
+Route::get('/api/getexhibit', function () {
+    $exhibit = Exhibit::all();
+    return $exhibit;
+});
+
+Route::get('/api/getexhibit/{id}', function ($id) {
+    $exhibit = exhibit::find($id);
+    $exhibits = exhibit::all();
+    $art = art::where('exhibit_id', $id)->get();
+    $poetry = poetry::where('exhibit_id', $id)->get();
+    $music = music::where('exhibit_id', $id)->get();
+    $user = User::all();
+    return ['exhibit' => $exhibit, 'exhibits' => $exhibits, 'art' => $art, 'poetry' => $poetry, 'music' => $music, 'user' => $user];
+});
+
+Route::post('/addexhibit', function (Request $request) {
+
+    $exhibit = new exhibit;
+    $exhibit->user_id = Auth::user()->id;
+    $exhibit->title = $request->title;
+    $exhibit->description = $request->description;
+    $exhibit->theme = $request->theme;
+    $exhibit->startDate = $request->startDate;
+    $exhibit->endDate = $request->endDate;
+    $exhibit->save();
+
+    return response()->json(
+        [
+            'success' => true,
+            'message' => 'exhibit added!'
+        ]
+    );
+});
+
+Route::post('/deleteexhibit/{id}', function ($id) {
+    $exhibit = exhibit::find($id);
+
+    if ($exhibit) {
+        $exhibit->delete();
+    }
+});
+
+Route::get('/api/getusername/{id}', function ($id) {
+    $name = user::find($id)->name;
+    return $name;
+});
+
+Route::get('/api/getusers', function () {
+    $users = user::all();
+    return $users;
+});
+
+Route::get('/api/getexhibit/{id}/art', function ($id) {
+    $art = Art::where('exhibit_id', $id)->get();
+    return $art;
+});
+Route::get('/api/getexhibit/{id}/music', function ($id) {
+    $music = music::where('exhibit_id', $id)->get();
+    return $music;
+});
+Route::get('/api/getexhibit/{id}/poetry', function ($id) {
+    $poetry = poetry::where('exhibit_id', $id)->get();
+    return $poetry;
 });

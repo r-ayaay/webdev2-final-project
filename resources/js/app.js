@@ -44,7 +44,6 @@ import newPoetry from './views/forms/new/Poetry.vue';
 import newExhibit from './views/forms/new/Exhibit.vue';
 
 import exhibitsView from './views/gallery/exhibitsView.vue';
-import exhibitView from './views/gallery/exhibitView.vue';
 import exhibitViewArt from './views/gallery/exhibitViewArt.vue';
 import exhibitViewPoetry from './views/gallery/exhibitViewPoetry.vue';
 import exhibitViewMusic from './views/gallery/exhibitViewMusic.vue';
@@ -56,10 +55,6 @@ const router = new VueRouter({
             path: '/gallery',
             name: 'exhibitsView',
             component: exhibitsView
-        },
-        {
-            path: '/gallery/:id',
-            component: exhibitView,
         },
         {
             path: '/gallery/:id/art',

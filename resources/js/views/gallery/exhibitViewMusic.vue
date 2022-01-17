@@ -4,25 +4,24 @@
       <sideBarGuest />
       <div id="mainSide">
         <div class="tab">
-          <router-link class="tablinks active" :to="urlart">
-            Arts
-          </router-link>
-          <router-link class="tablinks" :to="urlpoetry">
-            Poetries
-          </router-link>
-          <router-link class="tablinks" :to="urlmusic">
+          <router-link class="tablinks" :to="urlart"> Arts </router-link>
+          <router-link class="tablinks" :to="urlpoetry"> Poetries </router-link>
+          <router-link class="tablinks active" :to="urlmusic">
             Music
           </router-link>
         </div>
 
-        
-
-        <!-- <div id="Music" style="display: none" class="tabcontent">
-          <musicCard
-            v-for="data in musicdata"
-            v-bind:key="data['id']"
-            :data="data"
-          /> -->
+        <div id="Music" class="tabcontent">
+          <div class="cards-table" v-if="musiccount > 0">
+            <musicCard
+              v-for="data in musicdata"
+              v-bind:key="data['id']"
+              :data="data"
+            />
+          </div>
+          <div class="cards-table" v-else>
+            <h2>There are no music in this exhibit</h2>
+          </div>
         </div>
       </div>
     </div>
@@ -32,27 +31,25 @@
 <script>
 import axios from "axios";
 import sideBarGuest from "../../components/sideBarGuest.vue";
-
-import artCard from "../../components/cards/artCard.vue";
-import poetryCard from "../../components/cards/poetryCard.vue";
 import musicCard from "../../components/cards/musicCard.vue";
-
-const url = "/api/getexhibit/";
 
 export default {
   computed: {},
   props: [],
-  components: { sideBarGuest, artCard, poetryCard, musicCard },
+  components: { sideBarGuest, musicCard },
   data() {
     return {
-      gallerydata: null,
-      urlart: "/gallery/",
-      urlpoetry: "/gallery/",
-      urlmusic: "/gallery/",
+      musicdata: "",
+      musiccount: "",
+      url: "/api/getexhibit/" + this.$route.params.id + "/music",
+      urlart: "/gallery/" + this.$route.params.id + "/art",
+      urlpoetry: "/gallery/" + this.$route.params.id + "/poetry",
+      urlmusic: "/gallery/" + this.$route.params.id + "/music",
     };
   },
   mounted() {
-    axios.get(url).then((response) => (this.gallerydata = response.data));
+    axios.get(this.url).then((response) => (this.musicdata = response.data));
+    this.musiccount = this.musicdata.length;
   },
   methods: {},
 };

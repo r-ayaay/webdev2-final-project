@@ -2061,7 +2061,7 @@ module.exports = {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/","#USER"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\Users\\\\user\\\\Desktop\\\\webdev2-final-project","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ }),
 
@@ -2970,105 +2970,6 @@ var url = "/addpoetry";
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitView.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitView.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_sideBarGuest_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/sideBarGuest.vue */ "./resources/js/components/sideBarGuest.vue");
-/* harmony import */ var _components_cards_artCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/cards/artCard.vue */ "./resources/js/components/cards/artCard.vue");
-/* harmony import */ var _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/cards/poetryCard.vue */ "./resources/js/components/cards/poetryCard.vue");
-/* harmony import */ var _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/cards/musicCard.vue */ "./resources/js/components/cards/musicCard.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-var url = "/api/getexhibit/";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  computed: {},
-  props: [],
-  components: {
-    sideBarGuest: _components_sideBarGuest_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    artCard: _components_cards_artCard_vue__WEBPACK_IMPORTED_MODULE_2__.default,
-    poetryCard: _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_3__.default,
-    musicCard: _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_4__.default
-  },
-  data: function data() {
-    return {
-      gallerydata: null,
-      urlart: "/gallery/" + this.$route.params.id + "/art",
-      urlpoetry: "/gallery/",
-      urlmusic: "/gallery/"
-    };
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(url).then(function (response) {
-      return _this.gallerydata = response.data;
-    });
-  },
-  methods: {}
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitViewArt.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitViewArt.vue?vue&type=script&lang=js& ***!
@@ -3084,12 +2985,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_sideBarGuest_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/sideBarGuest.vue */ "./resources/js/components/sideBarGuest.vue");
 /* harmony import */ var _components_cards_artCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/cards/artCard.vue */ "./resources/js/components/cards/artCard.vue");
-/* harmony import */ var _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/cards/poetryCard.vue */ "./resources/js/components/cards/poetryCard.vue");
-/* harmony import */ var _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/cards/musicCard.vue */ "./resources/js/components/cards/musicCard.vue");
-//
-//
-//
-//
 //
 //
 //
@@ -3121,32 +3016,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-var url = "/api/getexhibit/";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {},
   props: [],
   components: {
     sideBarGuest: _components_sideBarGuest_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    artCard: _components_cards_artCard_vue__WEBPACK_IMPORTED_MODULE_2__.default,
-    poetryCard: _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_3__.default,
-    musicCard: _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_4__.default
+    artCard: _components_cards_artCard_vue__WEBPACK_IMPORTED_MODULE_2__.default
   },
   data: function data() {
     return {
-      gallerydata: null,
-      urlart: "/gallery/",
-      urlpoetry: "/gallery/",
-      urlmusic: "/gallery/"
+      artdata: "",
+      artcount: "",
+      url: "/api/getexhibit/" + this.$route.params.id + "/art",
+      urlart: "/gallery/" + this.$route.params.id + "/art",
+      urlpoetry: "/gallery/" + this.$route.params.id + "/poetry",
+      urlmusic: "/gallery/" + this.$route.params.id + "/music"
     };
   },
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(url).then(function (response) {
-      return _this.gallerydata = response.data;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
+      return _this.artdata = response.data;
     });
+    this.artcount = this.artdata.length;
   },
   methods: {}
 });
@@ -3167,10 +3060,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_sideBarGuest_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/sideBarGuest.vue */ "./resources/js/components/sideBarGuest.vue");
-/* harmony import */ var _components_cards_artCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/cards/artCard.vue */ "./resources/js/components/cards/artCard.vue");
-/* harmony import */ var _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/cards/poetryCard.vue */ "./resources/js/components/cards/poetryCard.vue");
-/* harmony import */ var _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/cards/musicCard.vue */ "./resources/js/components/cards/musicCard.vue");
-//
+/* harmony import */ var _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/cards/musicCard.vue */ "./resources/js/components/cards/musicCard.vue");
 //
 //
 //
@@ -3204,32 +3094,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-var url = "/api/getexhibit/";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {},
   props: [],
   components: {
     sideBarGuest: _components_sideBarGuest_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    artCard: _components_cards_artCard_vue__WEBPACK_IMPORTED_MODULE_2__.default,
-    poetryCard: _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_3__.default,
-    musicCard: _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_4__.default
+    musicCard: _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_2__.default
   },
   data: function data() {
     return {
-      gallerydata: null,
-      urlart: "/gallery/",
-      urlpoetry: "/gallery/",
-      urlmusic: "/gallery/"
+      musicdata: "",
+      musiccount: "",
+      url: "/api/getexhibit/" + this.$route.params.id + "/music",
+      urlart: "/gallery/" + this.$route.params.id + "/art",
+      urlpoetry: "/gallery/" + this.$route.params.id + "/poetry",
+      urlmusic: "/gallery/" + this.$route.params.id + "/music"
     };
   },
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(url).then(function (response) {
-      return _this.gallerydata = response.data;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
+      return _this.musicdata = response.data;
     });
+    this.musiccount = this.musicdata.length;
   },
   methods: {}
 });
@@ -3250,11 +3138,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_sideBarGuest_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/sideBarGuest.vue */ "./resources/js/components/sideBarGuest.vue");
-/* harmony import */ var _components_cards_artCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/cards/artCard.vue */ "./resources/js/components/cards/artCard.vue");
-/* harmony import */ var _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/cards/poetryCard.vue */ "./resources/js/components/cards/poetryCard.vue");
-/* harmony import */ var _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/cards/musicCard.vue */ "./resources/js/components/cards/musicCard.vue");
-//
-//
+/* harmony import */ var _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/cards/poetryCard.vue */ "./resources/js/components/cards/poetryCard.vue");
 //
 //
 //
@@ -3288,32 +3172,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-var url = "/api/getexhibit/";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {},
   props: [],
   components: {
     sideBarGuest: _components_sideBarGuest_vue__WEBPACK_IMPORTED_MODULE_1__.default,
-    artCard: _components_cards_artCard_vue__WEBPACK_IMPORTED_MODULE_2__.default,
-    poetryCard: _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_3__.default,
-    musicCard: _components_cards_musicCard_vue__WEBPACK_IMPORTED_MODULE_4__.default
+    poetryCard: _components_cards_poetryCard_vue__WEBPACK_IMPORTED_MODULE_2__.default
   },
   data: function data() {
     return {
-      gallerydata: null,
-      urlart: "/gallery/",
-      urlpoetry: "/gallery/",
-      urlmusic: "/gallery/"
+      poetrydata: "",
+      poetrycount: "",
+      url: "/api/getexhibit/" + this.$route.params.id + "/poetry",
+      urlart: "/gallery/" + this.$route.params.id + "/art",
+      urlpoetry: "/gallery/" + this.$route.params.id + "/poetry",
+      urlmusic: "/gallery/" + this.$route.params.id + "/music"
     };
   },
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get(url).then(function (response) {
-      return _this.gallerydata = response.data;
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
+      return _this.poetrydata = response.data;
     });
+    this.poetrycount = this.poetrydata.length;
   },
   methods: {}
 });
@@ -3837,10 +3719,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_forms_new_Poetry_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/forms/new/Poetry.vue */ "./resources/js/views/forms/new/Poetry.vue");
 /* harmony import */ var _views_forms_new_Exhibit_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/forms/new/Exhibit.vue */ "./resources/js/views/forms/new/Exhibit.vue");
 /* harmony import */ var _views_gallery_exhibitsView_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/gallery/exhibitsView.vue */ "./resources/js/views/gallery/exhibitsView.vue");
-/* harmony import */ var _views_gallery_exhibitView_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/gallery/exhibitView.vue */ "./resources/js/views/gallery/exhibitView.vue");
-/* harmony import */ var _views_gallery_exhibitViewArt_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/gallery/exhibitViewArt.vue */ "./resources/js/views/gallery/exhibitViewArt.vue");
-/* harmony import */ var _views_gallery_exhibitViewPoetry_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/gallery/exhibitViewPoetry.vue */ "./resources/js/views/gallery/exhibitViewPoetry.vue");
-/* harmony import */ var _views_gallery_exhibitViewMusic_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/gallery/exhibitViewMusic.vue */ "./resources/js/views/gallery/exhibitViewMusic.vue");
+/* harmony import */ var _views_gallery_exhibitViewArt_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/gallery/exhibitViewArt.vue */ "./resources/js/views/gallery/exhibitViewArt.vue");
+/* harmony import */ var _views_gallery_exhibitViewPoetry_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/gallery/exhibitViewPoetry.vue */ "./resources/js/views/gallery/exhibitViewPoetry.vue");
+/* harmony import */ var _views_gallery_exhibitViewMusic_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/gallery/exhibitViewMusic.vue */ "./resources/js/views/gallery/exhibitViewMusic.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -3884,7 +3765,6 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__.default);
 
 
 
-
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__.default({
   mode: 'history',
   routes: [{
@@ -3892,17 +3772,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__.default({
     name: 'exhibitsView',
     component: _views_gallery_exhibitsView_vue__WEBPACK_IMPORTED_MODULE_13__.default
   }, {
-    path: '/gallery/:id',
-    component: _views_gallery_exhibitView_vue__WEBPACK_IMPORTED_MODULE_14__.default
-  }, {
     path: '/gallery/:id/art',
-    component: _views_gallery_exhibitViewArt_vue__WEBPACK_IMPORTED_MODULE_15__.default
+    component: _views_gallery_exhibitViewArt_vue__WEBPACK_IMPORTED_MODULE_14__.default
   }, {
     path: '/gallery/:id/poetry',
-    component: _views_gallery_exhibitViewPoetry_vue__WEBPACK_IMPORTED_MODULE_16__.default
+    component: _views_gallery_exhibitViewPoetry_vue__WEBPACK_IMPORTED_MODULE_15__.default
   }, {
     path: '/gallery/:id/music',
-    component: _views_gallery_exhibitViewMusic_vue__WEBPACK_IMPORTED_MODULE_17__.default
+    component: _views_gallery_exhibitViewMusic_vue__WEBPACK_IMPORTED_MODULE_16__.default
   }, {
     path: '/vue/home',
     name: 'GalleryTable',
@@ -39929,45 +39806,6 @@ component.options.__file = "resources/js/views/forms/new/Poetry.vue"
 
 /***/ }),
 
-/***/ "./resources/js/views/gallery/exhibitView.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/views/gallery/exhibitView.vue ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _exhibitView_vue_vue_type_template_id_0b0f8e1c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./exhibitView.vue?vue&type=template&id=0b0f8e1c& */ "./resources/js/views/gallery/exhibitView.vue?vue&type=template&id=0b0f8e1c&");
-/* harmony import */ var _exhibitView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./exhibitView.vue?vue&type=script&lang=js& */ "./resources/js/views/gallery/exhibitView.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _exhibitView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _exhibitView_vue_vue_type_template_id_0b0f8e1c___WEBPACK_IMPORTED_MODULE_0__.render,
-  _exhibitView_vue_vue_type_template_id_0b0f8e1c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/views/gallery/exhibitView.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/views/gallery/exhibitViewArt.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/views/gallery/exhibitViewArt.vue ***!
@@ -40605,22 +40443,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/gallery/exhibitView.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/views/gallery/exhibitView.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_exhibitView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./exhibitView.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitView.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_exhibitView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
-
 /***/ "./resources/js/views/gallery/exhibitViewArt.vue?vue&type=script&lang=js&":
 /*!********************************************************************************!*\
   !*** ./resources/js/views/gallery/exhibitViewArt.vue?vue&type=script&lang=js& ***!
@@ -41014,23 +40836,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Poetry_vue_vue_type_template_id_78af0a03___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Poetry_vue_vue_type_template_id_78af0a03___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Poetry.vue?vue&type=template&id=78af0a03& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/forms/new/Poetry.vue?vue&type=template&id=78af0a03&");
-
-
-/***/ }),
-
-/***/ "./resources/js/views/gallery/exhibitView.vue?vue&type=template&id=0b0f8e1c&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/views/gallery/exhibitView.vue?vue&type=template&id=0b0f8e1c& ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_exhibitView_vue_vue_type_template_id_0b0f8e1c___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_exhibitView_vue_vue_type_template_id_0b0f8e1c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_exhibitView_vue_vue_type_template_id_0b0f8e1c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./exhibitView.vue?vue&type=template&id=0b0f8e1c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitView.vue?vue&type=template&id=0b0f8e1c&");
 
 
 /***/ }),
@@ -42391,67 +42196,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitView.vue?vue&type=template&id=0b0f8e1c&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitView.vue?vue&type=template&id=0b0f8e1c& ***!
-  \**************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "exhibit_container" } }, [
-    _c(
-      "div",
-      { attrs: { id: "container" } },
-      [
-        _c("sideBarGuest"),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "mainSide" } }, [
-          _c(
-            "div",
-            { staticClass: "tab" },
-            [
-              _c(
-                "router-link",
-                { staticClass: "tablinks active", attrs: { to: _vm.urlart } },
-                [_vm._v("\n          Arts\n        ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                { staticClass: "tablinks", attrs: { to: _vm.urlpoetry } },
-                [_vm._v("\n          Poetries\n        ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                { staticClass: "tablinks", attrs: { to: _vm.urlmusic } },
-                [_vm._v("\n          Music\n        ")]
-              )
-            ],
-            1
-          )
-        ])
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitViewArt.vue?vue&type=template&id=52887ec1&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/gallery/exhibitViewArt.vue?vue&type=template&id=52887ec1& ***!
@@ -42483,22 +42227,48 @@ var render = function() {
               _c(
                 "router-link",
                 { staticClass: "tablinks active", attrs: { to: _vm.urlart } },
-                [_vm._v("\n          Arts\n        ")]
+                [_vm._v(" Arts ")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
                 { staticClass: "tablinks", attrs: { to: _vm.urlpoetry } },
-                [_vm._v("\n          Poetries\n        ")]
+                [_vm._v(" Poetries ")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
                 { staticClass: "tablinks", attrs: { to: _vm.urlmusic } },
-                [_vm._v("\n          Music\n        ")]
+                [_vm._v(" Music ")]
               )
             ],
             1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "tabcontent",
+              staticStyle: { display: "block" },
+              attrs: { id: "Arts" }
+            },
+            [
+              _vm.artcount > 0
+                ? _c(
+                    "div",
+                    { staticClass: "cards-table" },
+                    _vm._l(_vm.artdata, function(data) {
+                      return _c("artCard", {
+                        key: data["id"],
+                        attrs: { data: data }
+                      })
+                    }),
+                    1
+                  )
+                : _c("div", { staticClass: "cards-table" }, [
+                    _c("h2", [_vm._v("There are artworks no in this exhibit")])
+                  ])
+            ]
           )
         ])
       ],
@@ -42543,24 +42313,42 @@ var render = function() {
             [
               _c(
                 "router-link",
-                { staticClass: "tablinks active", attrs: { to: _vm.urlart } },
-                [_vm._v("\n          Arts\n        ")]
+                { staticClass: "tablinks", attrs: { to: _vm.urlart } },
+                [_vm._v(" Arts ")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
                 { staticClass: "tablinks", attrs: { to: _vm.urlpoetry } },
-                [_vm._v("\n          Poetries\n        ")]
+                [_vm._v(" Poetries ")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
-                { staticClass: "tablinks", attrs: { to: _vm.urlmusic } },
+                { staticClass: "tablinks active", attrs: { to: _vm.urlmusic } },
                 [_vm._v("\n          Music\n        ")]
               )
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tabcontent", attrs: { id: "Music" } }, [
+            _vm.musiccount > 0
+              ? _c(
+                  "div",
+                  { staticClass: "cards-table" },
+                  _vm._l(_vm.musicdata, function(data) {
+                    return _c("musicCard", {
+                      key: data["id"],
+                      attrs: { data: data }
+                    })
+                  }),
+                  1
+                )
+              : _c("div", { staticClass: "cards-table" }, [
+                  _c("h2", [_vm._v("There are no music in this exhibit")])
+                ])
+          ])
         ])
       ],
       1
@@ -42604,24 +42392,45 @@ var render = function() {
             [
               _c(
                 "router-link",
-                { staticClass: "tablinks active", attrs: { to: _vm.urlart } },
-                [_vm._v("\n          Arts\n        ")]
+                { staticClass: "tablinks", attrs: { to: _vm.urlart } },
+                [_vm._v(" Arts ")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
-                { staticClass: "tablinks", attrs: { to: _vm.urlpoetry } },
+                {
+                  staticClass: "tablinks active",
+                  attrs: { to: _vm.urlpoetry }
+                },
                 [_vm._v("\n          Poetries\n        ")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
                 { staticClass: "tablinks", attrs: { to: _vm.urlmusic } },
-                [_vm._v("\n          Music\n        ")]
+                [_vm._v(" Music ")]
               )
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "tabcontent", attrs: { id: "Poetry" } }, [
+            _vm.poetrycount > 0
+              ? _c(
+                  "div",
+                  { staticClass: "cards-table" },
+                  _vm._l(_vm.poetrydata, function(data) {
+                    return _c("poetryCard", {
+                      key: data["id"],
+                      attrs: { data: data }
+                    })
+                  }),
+                  1
+                )
+              : _c("div", { staticClass: "cards-table" }, [
+                  _c("h2", [_vm._v("There are no poetries in this exhibit")])
+                ])
+          ])
         ])
       ],
       1
