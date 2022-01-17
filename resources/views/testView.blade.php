@@ -32,6 +32,7 @@
         $username = Auth::user()->name;
         $isAdmin = Auth::user()->admin;
         ?>
+        
         @endguest
 
         <app username="{{$username}}" userID="{{$userID}}" isAdmin="{{$isAdmin}}" />

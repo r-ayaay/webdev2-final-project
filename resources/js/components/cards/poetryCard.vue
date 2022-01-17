@@ -16,7 +16,7 @@
     </div>
 
     <div>
-      <form action="#" method="post">
+      <form :action="editPoetryURL" method="get">
         <input class="tablerowBtn" type="submit" value="Edit" />
       </form>
       <form action="#" @submit.prevent="deletepoetry">
@@ -41,6 +41,7 @@ export default {
   data() {
     return {
       url: "/deletepoetry/" + this.data["id"],
+      editPoetryURL: "/vue/update/Poetry/" + this.data["id"],
       username: "",
     };
   },

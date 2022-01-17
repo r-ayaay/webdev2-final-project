@@ -22,7 +22,7 @@
     </div>
 
     <div>
-      <form action="#" method="post">
+      <form :action="editArtURL" method="get">
         <input class="tablerowBtn" type="submit" value="Edit" />
       </form>
 
@@ -43,10 +43,12 @@ export default {
       axios.post(this.url);
       this.$emit("deleted");
     },
+    
   },
   data() {
     return {
       url: "/deleteart/" + this.data["id"],
+      editArtURL: "/vue/update/Art/" + this.data["id"],
       username: "",
     };
   },
