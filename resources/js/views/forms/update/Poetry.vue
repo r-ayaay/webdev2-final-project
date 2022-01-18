@@ -49,7 +49,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("/api/edit/getpoetry/" + this.$route.params.id)
+    axios.get("/edit/getpoetry/" + this.$route.params.id)
       .then((response) => (
         this.newdata = response.data
       ))
@@ -77,10 +77,11 @@ export default {
           console.log(response.data.message);
           this.form.reset();
         });
+        window.location.replace("/vue/Poetry");
       },
       
     cancelEdit() {
-      window.location.replace("/home");
+      window.location.replace("/vue/Poetry");
     },
   },
 };

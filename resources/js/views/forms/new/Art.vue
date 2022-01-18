@@ -70,18 +70,7 @@ export default {
       data.append("description", this.form.description);
       data.append("theme", this.form.theme);
       data.append("photo", this.form.photo);
-      // this.form
-      //   .post(url, {
-      //     headers: {
-      //       "Content-Type": "multipart/form-data",
-      //     },
-      //   })
-      //   .then((response) => {
-      //     var attr = document.getElementById("info");
-      //     attr.innerHTML = response.data.message;
-      //     console.log(response.data.message);
-      //     this.form.reset();
-      //   });
+      
       axios
         .post(url, data, {
           headers: {
@@ -94,6 +83,7 @@ export default {
           console.log(response.data.message);
           this.form.reset();
         });
+        window.location.replace("/vue/Art");
     },
   },
 };

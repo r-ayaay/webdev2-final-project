@@ -89,8 +89,8 @@ Route::get('/vue/{any}', 'App\Http\Controllers\PagesController@index')->where('a
 // Route::get('/test', 'App\Http\Controllers\PagesController@index');
 
 // ============================FOR Art.vue============================
-Route::get('/api/edit/getart/{id}', function () {
-    $art_data = Art::all();
+Route::get('/api/edit/getart/{id}', function ($id) {
+    $art_data = Art::where('id', $id)->get();
     return $art_data;
 });
 
@@ -108,8 +108,8 @@ Route::post('/addart', function (Request $request) {
     $destination_path = 'public/art';
     $photo = $_FILES['photo'];
     request(('photo'))->storeAs($destination_path, $photo['name']);
-
-    $art = Art::findOrFail($request->id);
+    
+    $art = new Art;
     $art->user_id = Auth::user()->id;
     $art->title = $request->title;
     $art->description = $request->description;
@@ -164,13 +164,8 @@ Route::get('/api/getpoetry', function () {
     return $poetry;
 });
 
-Route::get('/api/edit/Poetry/{id}', function () {
-    $poetry_data = Poetry::all();
-    return $poetry_data;
-});
-
-Route::get('/api/edit/getpoetry/{id}', function () {
-    $poetry_data = Poetry::all();
+Route::get('/edit/getpoetry/{id}', function ($id) {
+    $poetry_data = Poetry::where('id', $id)->get();
     return $poetry_data;
 });
 
@@ -218,12 +213,18 @@ Route::post('/deletepoetry/{id}', function ($id) {
 });
 // ============================FOR Poetry.vue============================
 
+// ============================FOR Music.vue============================
+
+Route::get('/api/edit/Music/{id}', function ($id) {
+    $music_data = Music::where('id', $id)->get();
+    return $music_data;
+});
 
 Route::get('/api/getmusic', function () {
     if (Auth::user()->admin == 1) {
-        $music = music::all();
+        $music = Music::all();
     } else {
-        $music = music::where('user_id', Auth::user()->id)->get();
+        $music = Music::where('user_id', Auth::user()->id)->get();
     }
     return $music;
 });
@@ -237,6 +238,29 @@ Route::post('/addmusic', function (Request $request) {
     request(('music'))->storeAs($destination_path, $audio['name']);
 
     $music = new Music;
+    $music->user_id = Auth::user()->id;
+    $music->title = $request->title;
+    $music->genre = $request->genre;
+    $music->photo = $photo['name'];
+    $music->music = $audio['name'];
+    $music->save();
+    return response()->json(
+        [
+            'success' => true,
+            'message' => "it worked",
+        ]
+    );
+});
+
+Route::post('/update/music', function (Request $request) {
+
+    $destination_path = 'public/music';
+    $photo = $_FILES['photo'];
+    $audio = $_FILES['music'];
+    request(('photo'))->storeAs($destination_path, $photo['name']);
+    request(('music'))->storeAs($destination_path, $audio['name']);
+
+    $music = Music::where('id', $request->id)->get();
     $music->user_id = Auth::user()->id;
     $music->title = $request->title;
     $music->genre = $request->genre;

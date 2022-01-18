@@ -1,6 +1,6 @@
 <template>
   <div class="poetry-card">
-    <div class="title">"{{ data["title"] }}"</div>
+    <div class="title">"{{ data["title"] }}" {{ data["id"] }} </div>
 
     <div
       style="background-color: #1e3c86; overflow-y: scroll; padding: 15px 25px"

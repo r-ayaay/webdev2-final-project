@@ -5,9 +5,15 @@
       <h2>UPDATE ART INFORMATION FOR "{{ newdata[0].title }}"</h2>
       <!-- place user id variable in value-->
       <input type="hidden" name="user_id" value="" />
+      <h1>{{ newdata[0].photo }}</h1>
       <div class="fileDiv">
         <div id="img-prev">
-          <p>No File Chosen</p>
+          <img
+            :src="'../../../storage/art/' + newdata[0].photo"
+            alt="Art Photo"
+            style="width: 100%"
+            id="img"
+          />
         </div>
         <input
           type="file"
@@ -59,12 +65,8 @@ export default {
   mounted() {
     axios
       .get("/api/edit/getart/" + this.$route.params.id)
-      .then((response) => (this.newdata = response.data))
-      .then(() => {
-        this.form.title = this.newdata[0].title;
-        this.form.description = this.newdata[0].description;
-        this.form.theme = this.newdata[0].theme;
-      });
+      .then((response) => (this.newdata = response.data));
+      
   },
   methods: {
     onImageChange(e) {
@@ -72,16 +74,18 @@ export default {
     },
 
     cancelEdit() {
-      window.location.replace("/home");
+      window.location.replace("/vue/Art");
     },
 
     updateart() {
       const data = new FormData();
       data.append("id", this.newdata[0].id);
-      data.append("title", this.form.title);
-      data.append("description", this.form.description);
-      data.append("theme", this.form.theme);
-      data.append("photo", this.form.photo);
+      
+
+      data.append("title", (this.form.title == "") ? this.newdata[0].title : this.form.title);
+      data.append("description", (this.form.description == "") ? this.newdata[0].description : this.form.description);
+      data.append("theme", (this.form.theme == "") ? this.newdata[0].theme : this.form.theme);
+      data.append("photo", (this.form.photo == "") ? this.newdata[0].photo : this.form.photo);
 
       axios
         .post(url, data, {
@@ -95,6 +99,7 @@ export default {
           console.log(response.data.message);
           this.form.reset();
         });
+        window.location.replace("/vue/Art");
     },
   },
 };

@@ -12,6 +12,9 @@
     <audio controls :src="'../storage/music/' + data['music']" />
 
     <div>
+      <form :action="editMusicURL" method="get">
+        <input class="tablerowBtn" type="submit" value="Edit" />
+      </form>
       <form action="#" @submit.prevent="deletemusic">
         <input class="tablerowBtn" type="submit" value="Delete" />
       </form>
@@ -34,6 +37,7 @@ export default {
   data() {
     return {
       url: "/deletemusic/" + this.data["id"],
+      editMusicURL: "/vue/update/Music/" + this.data["id"],
       username: "",
     };
   },

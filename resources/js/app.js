@@ -45,6 +45,7 @@ import newExhibit from './views/forms/new/Exhibit.vue';
 
 import updateArt from './views/forms/update/Art.vue';
 import updatePoetry from './views/forms/update/Poetry.vue';
+import updateMusic from './views/forms/update/Music.vue';
 
 import exhibitsView from './views/gallery/exhibitsView.vue';
 import exhibitViewArt from './views/gallery/exhibitViewArt.vue';
@@ -132,6 +133,12 @@ const router = new VueRouter({
             name: 'updatePoetry',
             component: updatePoetry,
         },
+        {
+            path: '/vue/update/Music/:id',
+            name: 'updateMusic',
+            component: updateMusic,
+        },
+        
 
     ],
 });
