@@ -86,6 +86,14 @@ Route::get('/exhibit-{id}', function ($id) {
 Route::get('/vue/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '^(?!login|register|logout).*');
 // Route::get('/{any}', 'App\Http\Controllers\PagesController@index');
 
+// Route::get('/test', 'App\Http\Controllers\PagesController@index');
+
+// ============================FOR Art.vue============================
+Route::get('/api/edit/getart/{id}', function () {
+    $art_data = Art::all();
+    return $art_data;
+});
+
 Route::get('/api/getart', function () {
     if (Auth::user()->admin == 1) {
         $art = Art::all();
@@ -101,7 +109,28 @@ Route::post('/addart', function (Request $request) {
     $photo = $_FILES['photo'];
     request(('photo'))->storeAs($destination_path, $photo['name']);
 
-    $art = new Art;
+    $art = Art::findOrFail($request->id);
+    $art->user_id = Auth::user()->id;
+    $art->title = $request->title;
+    $art->description = $request->description;
+    $art->photo = $photo['name'];
+    $art->theme = $request->theme;
+    $art->save();
+    return response()->json(
+        [
+            'success' => true,
+            'message' => "it worked",
+        ]
+    );
+});
+
+Route::post('/update/art', function (Request $request) {
+
+    $destination_path = 'public/art';
+    $photo = $_FILES['photo'];
+    request(('photo'))->storeAs($destination_path, $photo['name']);
+
+    $art = Art::findOrFail($request->id);
     $art->user_id = Auth::user()->id;
     $art->title = $request->title;
     $art->description = $request->description;
@@ -123,7 +152,9 @@ Route::post('/deleteart/{id}', function ($id) {
         $art->delete();
     }
 });
+// ============================FOR Art.vue============================
 
+// ============================FOR Poetry.vue============================
 Route::get('/api/getpoetry', function () {
     if (Auth::user()->admin == 1) {
         $poetry = Poetry::all();
@@ -131,6 +162,16 @@ Route::get('/api/getpoetry', function () {
         $poetry = Poetry::where('user_id', Auth::user()->id)->get();
     }
     return $poetry;
+});
+
+Route::get('/api/edit/Poetry/{id}', function () {
+    $poetry_data = Poetry::all();
+    return $poetry_data;
+});
+
+Route::get('/api/edit/getpoetry/{id}', function () {
+    $poetry_data = Poetry::all();
+    return $poetry_data;
 });
 
 Route::post('/addpoetry', function (Request $request) {
@@ -150,6 +191,24 @@ Route::post('/addpoetry', function (Request $request) {
     );
 });
 
+Route::post('/update/poetry', function (Request $request) {
+
+    $poetry = Poetry::findOrFail($request->id);
+    $poetry->user_id = Auth::user()->id;
+    $poetry->title = $request->title;
+    $poetry->body = $request->body;
+    $poetry->theme = $request->theme;
+    $poetry->save();
+
+    return response()->json(
+        [
+            'success' => true,
+            'message' => 'Poetry added!'
+        ]
+    );
+});
+
+
 Route::post('/deletepoetry/{id}', function ($id) {
     $poetry = poetry::find($id);
 
@@ -157,6 +216,8 @@ Route::post('/deletepoetry/{id}', function ($id) {
         $poetry->delete();
     }
 });
+// ============================FOR Poetry.vue============================
+
 
 Route::get('/api/getmusic', function () {
     if (Auth::user()->admin == 1) {

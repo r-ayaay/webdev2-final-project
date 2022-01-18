@@ -19,4 +19,10 @@ class PagesController extends Controller
         $musics = Music::all();
         return view('testView')->with('arts', $arts)->with('exhibits', $exhibits)->with('poetries', $poetries)->with('musics', $musics);
     }
+
+    public function update($id)
+    {
+        $art_data = Art::findORFail($id);
+        return view('tables/artTable')->with('art_data',$art_data);
+    }
 }

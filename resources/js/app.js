@@ -43,6 +43,9 @@ import newMusic from './views/forms/new/Music.vue';
 import newPoetry from './views/forms/new/Poetry.vue';
 import newExhibit from './views/forms/new/Exhibit.vue';
 
+import updateArt from './views/forms/update/Art.vue';
+import updatePoetry from './views/forms/update/Poetry.vue';
+
 import exhibitsView from './views/gallery/exhibitsView.vue';
 import exhibitViewArt from './views/gallery/exhibitViewArt.vue';
 import exhibitViewPoetry from './views/gallery/exhibitViewPoetry.vue';
@@ -117,6 +120,17 @@ const router = new VueRouter({
             path: '/vue/newExhibit',
             name: 'newExhibit',
             component: newExhibit,
+        },
+        // ==================================EDIT ROUTES==================================
+        {
+            path: '/vue/update/Art/:id',
+            name: 'updateArt',
+            component: updateArt,
+        },
+        {
+            path: '/vue/update/Poetry/:id',
+            name: 'updatePoetry',
+            component: updatePoetry,
         },
 
     ],
