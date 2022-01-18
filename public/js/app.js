@@ -3158,9 +3158,9 @@ var url = "/update/poetry";
 
       var data = new FormData();
       data.append("id", this.newdata[0].id);
-      data.append("title", this.form.title);
-      data.append("body", this.form.body);
-      data.append("theme", this.form.theme);
+      data.append("title", this.form.title == "" ? this.newdata[0].title : this.form.title);
+      data.append("body", this.form.body == "" ? this.newdata[0].body : this.form.body);
+      data.append("theme", this.form.theme == "" ? this.newdata[0].theme : this.form.theme);
       axios.post(url, data, {
         headers: {
           "Content-Type": "multipart/form-data"
