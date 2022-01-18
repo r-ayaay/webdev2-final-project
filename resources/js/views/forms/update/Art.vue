@@ -2,7 +2,7 @@
   <div>
     <span id="info"></span>
     <form action="#" autocomplete="off" @submit.prevent="updateart">
-      <h2>UPDATE ART INFORMATION FOR "{{newdata[0].title}}"</h2>
+      <h2>UPDATE ART INFORMATION FOR "{{ newdata[0].title }}"</h2>
       <!-- place user id variable in value-->
       <input type="hidden" name="user_id" value="" />
       <div class="fileDiv">
@@ -14,28 +14,24 @@
           accept="image/*"
           id="choose-file"
           name="photo"
-          :placeholder="newdata[0].photo"
           @change="onImageChange"
         />
         <!-- <div class="fileBtn" onClick="fileup()">Choose Photo</div> -->
       </div>
 
       <label for="title">Art Title</label>
-      <input type="text" name="title" :placeholder="newdata[0].title" v-model="form.title" />
+      <input type="text" name="title" v-model="form.title" />
 
       <label for="description">Description</label>
-      <input
-        type="text"
-        name="description"
-        :placeholder="newdata[0].description"
-        v-model="form.description"
-      />
+      <input type="text" name="description" v-model="form.description" />
 
       <label for="theme">Theme</label>
-      <input type="text" name="theme" :placeholder="newdata[0].theme" v-model="form.theme" />
+      <input type="text" name="theme" v-model="form.theme" />
 
       <button id="submitBtn"><h3>SUBMIT</h3></button>
-      <button type="button" id="submitBtn" v-on:click="cancelEdit"><h3>CANCEL</h3></button>
+      <button type="button" id="submitBtn" v-on:click="cancelEdit">
+        <h3>CANCEL</h3>
+      </button>
     </form>
   </div>
 </template>
@@ -52,21 +48,23 @@ export default {
   data() {
     return {
       form: new Form({
-        id: "",
         title: "",
         description: "",
         theme: "",
         photo: "",
-      }), 
-      newdata: null
+      }),
+      newdata: null,
     };
   },
   mounted() {
-    axios.get("/api/edit/getart/" + this.$route.params.id)
-      .then((response) => (
-        
-        this.newdata = response.data
-      ))
+    axios
+      .get("/api/edit/getart/" + this.$route.params.id)
+      .then((response) => (this.newdata = response.data))
+      .then(() => {
+        this.form.title = this.newdata[0].title;
+        this.form.description = this.newdata[0].description;
+        this.form.theme = this.newdata[0].theme;
+      });
   },
   methods: {
     onImageChange(e) {
@@ -84,7 +82,7 @@ export default {
       data.append("description", this.form.description);
       data.append("theme", this.form.theme);
       data.append("photo", this.form.photo);
-      
+
       axios
         .post(url, data, {
           headers: {
@@ -97,7 +95,7 @@ export default {
           console.log(response.data.message);
           this.form.reset();
         });
-      },
+    },
   },
 };
 </script>

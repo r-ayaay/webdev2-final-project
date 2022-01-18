@@ -69,6 +69,7 @@ export default {
   },
   mounted() {
     axios.get(url).then((response) => (this.gallerydata = response.data));
+    console.log(this.$route.params.id);
   },
   methods: {},
 };
