@@ -2,7 +2,7 @@
   <div>
     <span id="info"></span>
     <form action="#" autocomplete="off" @submit.prevent="updatemusic">
-      <h1>UPDATE MUSIC INFORMATION FOR "{{musicdata[0].title}}"  {{musicdata[0].id}}</h1>
+      <h1 id="test">UPDATE MUSIC INFORMATION FOR "{{musicdata[0].title}}"</h1>
 
       <label for="title">Song Name</label>
 
@@ -62,7 +62,8 @@ export default {
         music: "",
         photo: "",
       }),
-      musicdata: null
+      musicdata: null,
+      status: ""
     };
   },
   mounted() {
@@ -70,7 +71,7 @@ export default {
       .get("/api/edit/Music/" + this.$route.params.id)
       .then((response) => (
         this.musicdata = response.data
-      ))
+      ));
   },
   methods: {
     onImageChange(e) {
@@ -81,6 +82,12 @@ export default {
     },
     cancelEdit() {
       window.location.replace("/vue/Music");
+    },
+    redirect(){
+      console.log("redirect function");
+      if(this.status == "it worked"){
+        window.location.replace("/vue/Music");
+      }
     },
     updatemusic() {
       const data = new FormData();
@@ -98,9 +105,11 @@ export default {
         .then((response) => {
           var attr = document.getElementById("info");
           attr.innerHTML = response.data.message;
+          this.status = response.data.message;
           console.log(response.data.message);
           this.form.reset();
         });
+        window.location.replace("/vue/Music");
     },
   },
 };

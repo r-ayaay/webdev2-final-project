@@ -25,9 +25,11 @@
 
     <div></div>
 
-    <a id="logout">
-      <p id="logoutText">Logout</p>
-    </a>
+    <form action="/logout" method="get">
+      <button id="logout" v-on:click="logout">
+        Logout
+      </button>
+    </form>
   </div>
 </template>
 <script>
@@ -38,8 +40,10 @@ export default {
   props: ["username"],
   methods: {
     logout() {
-      axios.post("/login").catch((error) => {
-        window.location.href = "login";
+      console.log("logout function");
+      axios.post("/logout").then(() => {
+        console.log(error);
+        window.location.replace("/logout");
       });
     },
   },

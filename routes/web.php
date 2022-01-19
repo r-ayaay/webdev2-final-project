@@ -6,6 +6,7 @@ use App\Http\Controllers\PoetryController;
 use App\Http\Controllers\ExhibitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MusicController;
+use App\Http\Controllers\LogoutController;
 use Illuminate\Http\Request;
 
 use App\Models\exhibit;
@@ -252,28 +253,7 @@ Route::post('/addmusic', function (Request $request) {
     );
 });
 
-Route::post('/update/music', function (Request $request) {
-
-    $destination_path = 'public/music';
-    $photo = $_FILES['photo'];
-    $audio = $_FILES['music'];
-    request(('photo'))->storeAs($destination_path, $photo['name']);
-    request(('music'))->storeAs($destination_path, $audio['name']);
-
-    $music = Music::where('id', $request->id)->get();
-    $music->user_id = Auth::user()->id;
-    $music->title = $request->title;
-    $music->genre = $request->genre;
-    $music->photo = $photo['name'];
-    $music->music = $audio['name'];
-    $music->save();
-    return response()->json(
-        [
-            'success' => true,
-            'message' => "it worked",
-        ]
-    );
-});
+Route::post('/update/music', 'App\Http\Controllers\MusicController@update');
 
 Route::post('/deletemusic/{id}', function ($id) {
     $music = music::find($id);
@@ -347,3 +327,10 @@ Route::get('/api/getexhibit/{id}/poetry', function ($id) {
     $poetry = poetry::where('exhibit_id', $id)->get();
     return $poetry;
 });
+
+Route::group(['middleware' => ['auth']], function() {
+    /**
+    * Logout Route
+    */
+    Route::get('/logout', [LogoutController::class, 'logout']);
+ });

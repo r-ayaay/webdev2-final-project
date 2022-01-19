@@ -107,9 +107,27 @@ class MusicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $destination_path = 'public/music';
+        $photo = $_FILES['photo'];
+        $audio = $_FILES['music'];
+        request(('photo'))->storeAs($destination_path, $photo['name']);
+        request(('music'))->storeAs($destination_path, $audio['name']);
+
+        $music = Music::findOrFail($request->id);
+        $music->user_id = Auth::user()->id;
+        $music->title = $request->title;
+        $music->genre = $request->genre;
+        $music->photo = $photo['name'];
+        $music->music = $audio['name'];
+        $music->save();
+        return response()->json(
+            [
+                'success' => true,
+                'message' => "it worked",
+            ]
+        );
     }
 
     /**

@@ -2456,14 +2456,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {},
   props: ["username"],
   methods: {
     logout: function logout() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/login")["catch"](function (error) {
-        window.location.href = "login";
+      console.log("logout function");
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/logout").then(function () {
+        console.log(error);
+        window.location.replace("/logout");
       });
     }
   }
@@ -3158,7 +3162,8 @@ var url = "/update/music";
         music: "",
         photo: ""
       }),
-      musicdata: null
+      musicdata: null,
+      status: ""
     };
   },
   mounted: function mounted() {
@@ -3178,6 +3183,13 @@ var url = "/update/music";
     cancelEdit: function cancelEdit() {
       window.location.replace("/vue/Music");
     },
+    redirect: function redirect() {
+      console.log("redirect function");
+
+      if (this.status == "it worked") {
+        window.location.replace("/vue/Music");
+      }
+    },
     updatemusic: function updatemusic() {
       var _this2 = this;
 
@@ -3194,10 +3206,12 @@ var url = "/update/music";
       }).then(function (response) {
         var attr = document.getElementById("info");
         attr.innerHTML = response.data.message;
+        _this2.status = response.data.message;
         console.log(response.data.message);
 
         _this2.form.reset();
       });
+      window.location.replace("/vue/Music");
     }
   }
 });
@@ -42024,19 +42038,14 @@ var render = function() {
     _vm._v(" "),
     _c("div"),
     _vm._v(" "),
-    _vm._m(0)
+    _c("form", { attrs: { action: "/logout", method: "get" } }, [
+      _c("button", { attrs: { id: "logout" }, on: { click: _vm.logout } }, [
+        _vm._v("\n      Logout\n    ")
+      ])
+    ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { id: "logout" } }, [
-      _c("p", { attrs: { id: "logoutText" } }, [_vm._v("Logout")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -42948,12 +42957,11 @@ var render = function() {
         }
       },
       [
-        _c("h1", [
+        _c("h1", { attrs: { id: "test" } }, [
           _vm._v(
             'UPDATE MUSIC INFORMATION FOR "' +
               _vm._s(_vm.musicdata[0].title) +
-              '"  ' +
-              _vm._s(_vm.musicdata[0].id)
+              '"'
           )
         ]),
         _vm._v(" "),
